@@ -1,0 +1,13 @@
+<div class="p-3">
+  <button class="btn btn-warning" (click)="addLanguage()">
+    <i class="fa-solid fa-plus"></i> Dodaj język
+  </button>
+
+  <div class="d-flex justify-content-center align-items-center" style="height: calc(100vh - 200px);">
+    <div class="d-flex flex-column gap-2 w-100" style="max-width: 400px;">
+      <button class="btn btn-dark w-100" *ngFor="let lang of (languages$ | async)" (click)="selectLanguage(lang)">
+        {{ lang }}
+      </button>
+    </div>
+  </div>
+</div>

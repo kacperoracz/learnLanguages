@@ -1,0 +1,42 @@
+<div class="position-fixed top-0 start-0 w-100 bg-white p-3" style="z-index: 1050; margin-top: 55px;">
+    <div class="d-flex gap-2">
+
+        <button class="btn btn-warning" (click)="back()">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+
+        <button class="btn btn-dark flex-grow-1" (click)="addSection()">
+            Dodaj sekcję
+        </button>
+
+        <button class="btn btn-dark flex-grow-1" (click)="confirm()">
+            Zatwierdź {{ sections().length }}
+        </button>
+
+        
+    </div>
+</div>
+
+<div style="height: 70px;"></div>
+
+<div class="container mt-4">
+    <div class="d-flex flex-column gap-3">
+
+        @for (section of sections(); track $index; let i = $index) {
+        <div class="card p-3 shadow-sm">
+            <div class="mb-2">
+                <input type="text" class="form-control" placeholder="Oryginał" [(ngModel)]="section.original">
+            </div>
+
+            <div class="mb-2">
+                <input type="text" class="form-control" placeholder="Tłumaczenie" [(ngModel)]="section.translation">
+            </div>
+
+            <button class="btn btn-danger mt-2" (click)="removeSection(i)">
+                Usuń
+            </button>
+        </div>
+        }
+
+    </div>
+</div>

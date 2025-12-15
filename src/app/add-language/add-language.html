@@ -1,0 +1,13 @@
+<div class="p-3">
+  <button class="btn btn-warning" (click)="back()"><i class="fa-solid fa-arrow-left"></i></button>
+
+  <div class="d-flex justify-content-center align-items-center" style="height: calc(100vh - 200px);">
+    <div class="d-flex flex-column gap-2 w-100" style="max-width: 400px;">
+      <p class="fw-semibold mb-1">Dodaj nowy język</p>
+
+      <input type="text" class="form-control mb-3" placeholder="Wpisz nazwę języka" [(ngModel)]="newLanguage">
+
+      <button class="btn btn-dark w-100" (click)="addLanguage()">Dodaj</button>
+    </div>
+  </div>
+</div>

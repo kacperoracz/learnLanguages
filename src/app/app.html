@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand mx-auto" href="#">S Ł Ó W K A</a>
+  </div>
+</nav>
+
+<div style="height: 55px;"></div>
+<!-- ❌ NIEZALOGOWANY -->
+<div *ngIf="(isLoggedIn$ | async) === false">
+  <div class="alert alert-info">
+    Zaloguj się, aby korzystać z aplikacji.
+  </div>
+</div>
+
+<!-- ⏳ ŁADOWANIE -->
+<div *ngIf="(loading$ | async)">
+  <div class="spinner-border"></div>
+  Tworzenie / ładowanie danych użytkownika...
+</div>
+
+<!-- ✅ GOTOWE -->
+<div *ngIf="(spreadsheetId$ | async) as spreadsheetId">
+  <router-outlet></router-outlet>
+</div>

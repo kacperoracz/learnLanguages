@@ -1,0 +1,45 @@
+<div class="position-fixed top-0 start-0 w-100 bg-white p-3 shadow-sm" style="z-index: 1050; margin-top: 55px;">
+  <button class="btn btn-warning" (click)="back()">
+    <i class="fa-solid fa-arrow-left"></i> Powrót
+  </button>
+  <span class="ms-3 fw-bold">{{ language }} - Podsumowanie</span>
+</div>
+
+<div style="height: 70px;"></div>
+
+<div class="container mt-4">
+  <div *ngIf="words().length === 0" class="alert alert-info">
+    Brak słówek w tym języku.
+  </div>
+
+  <div class="d-flex flex-column gap-3">
+    <div *ngFor="let w of words(); let i = index" class="card p-3 shadow-sm">
+      <div class="d-flex justify-content-between mb-2">
+        <span class="fw-bold">#{{ i + 1 }}</span>
+      </div>
+      <div class="mb-1">
+        <span class="text-muted">Oryginał:</span>
+        <div>{{ w.source }}</div>
+      </div>
+      <div class="mb-1">
+        <span class="text-muted">Tłumaczenie:</span>
+        <div>{{ w.target }}</div>
+      </div>
+      <div class="mb-1">
+        <span class="text-muted">Level ST→T:</span>
+        <div>{{ w.levelSourceToTarget ?? 0 }}</div>
+      </div>
+      <div class="mb-1">
+        <span class="text-muted">Level T→ST:</span>
+        <div>{{ w.levelTargetToSource ?? 0 }}</div>
+      </div>
+      <div class="mb-1">
+        <span class="text-muted">Ostatnia powtórka:</span>
+        <div>
+          ST→T: {{ w.lastReviewSourceToTarget || '-' }}<br>
+          T→ST: {{ w.lastReviewTargetToSource || '-' }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
